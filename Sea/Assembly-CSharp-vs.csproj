@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{5A837780-53CF-5D4D-D80E-F9EC9426A445}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;UNITY_ANDROID_API;ENABLE_CLOTH;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;UNITY_4_1_2;UNITY_4_1;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="UnityEngine">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Code\Dummer.cs" />
+     <Compile Include="Assets\Code\Sea.cs" />
+     <Compile Include="Assets\Code\Ship.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Common\Internal\Interpolation.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Common\Internal\Tools.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Common\Internal\UpdateManager.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Common\Other\ImprovedTrail.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Common\UI\UI.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\Cannon.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\LagRotation.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\ShipBobble.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\ShipCamera.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\ShipController.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\ShipHull.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\ShipOrbit.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\ShipSail.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\ShipTilt.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Exploration\ShipTrail.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\Cannonball.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\Game.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\GameCamera.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\GameCameraTarget.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\GameShip.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\GameUnit.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\RepositionWater.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\ScrollingCombatText.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\TownName.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Game\Water.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\ArrowProjector.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\AvailableShips.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\Config.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\Highlightable.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\Icons.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\SplineF.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\SplineQ.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\SplineV.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\StrategicCamera.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\Tooltip.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\Town.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\TownResources.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\TradeRoute.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\TradeRouteCreator.cs" />
+     <Compile Include="Assets\ShipGameStarterKit\Scripts\Strategy\TradeShip.cs" />
+     <None Include="Assets\ShipGameStarterKit\Shaders\Hull.shader" />
+     <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-SimpleWater4.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\ShipGameStarterKit\Shaders\Tree.shader" />
+     <None Include="Assets\ShipGameStarterKit\Shaders\ReplaceColor.shader" />
+     <None Include="Assets\ShipGameStarterKit\Shaders\Untextured.shader" />
+     <None Include="Assets\ShipGameStarterKit\Shaders\Sails.shader" />
+     <None Include="Assets\ShipGameStarterKit\Shaders\Water.shader" />
+     <None Include="Assets\Standard Assets\Water (Pro Only)\Sources\Shaders\FX-Water.shader" />
+     <None Include="Assets\ShipGameStarterKit\Shaders\DiffuseBumpAO.shader" />
+     <None Include="Assets\ShipGameStarterKit\Shaders\Rigging.shader" />
+     <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\WaterInclude.cginc" />
+     <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-Water4.shader" />
+     <None Include="Assets\ShipGameStarterKit\Shaders\MultiplyNoAlpha.shader" />
+     <None Include="Assets\ShipGameStarterKit\ReadMe (Important!).txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{6E277DC1-234D-C670-2C5F-190281160ECA}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
