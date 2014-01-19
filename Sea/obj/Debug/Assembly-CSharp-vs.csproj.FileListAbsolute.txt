@@ -1,0 +1,11 @@
+G:\gitdata\Sea\Sea\Temp\bin\Debug\Assembly-CSharp.dll
+G:\gitdata\Sea\Sea\Temp\bin\Debug\Assembly-CSharp.pdb
+G:\gitdata\Sea\Sea\Temp\bin\Debug\UnityEditor.dll
+G:\gitdata\Sea\Sea\Temp\bin\Debug\UnityEngine.dll
+G:\gitdata\Sea\Sea\Temp\bin\Debug\Mono.Cecil.dll
+G:\gitdata\Sea\Sea\Temp\bin\Debug\nunit.framework.dll
+G:\gitdata\Sea\Sea\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+G:\gitdata\Sea\Sea\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+G:\gitdata\Sea\Sea\obj\Debug\ResolveAssemblyReference.cache
+G:\gitdata\Sea\Sea\obj\Debug\Assembly-CSharp.dll
+G:\gitdata\Sea\Sea\obj\Debug\Assembly-CSharp.pdb

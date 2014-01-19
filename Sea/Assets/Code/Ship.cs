@@ -9,6 +9,8 @@ public class Ship
 	}
 	public void update(Vector3 _wind)
 	{
+        //m_speed=Input.ge
+
 		m_go.transform.position+=(m_speed+_wind)*Time.deltaTime;
 	}
 	GameObject m_go;
