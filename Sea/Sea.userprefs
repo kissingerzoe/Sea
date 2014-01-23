@@ -1,15 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Sails.shader">
-    <Files>
-      <File FileName="Assets/Code/Sea.cs" Line="1" Column="1" />
-      <File FileName="Assets/Code/Ship.cs" Line="1" Column="1" />
-      <File FileName="Assets/Code/Dummer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Code/Sail.cs" Line="1" Column="1" />
-      <File FileName="Assets/ShipGameStarterKit/Shaders/Tree.shader" Line="1" Column="1" />
-      <File FileName="Assets/Standard Assets/Sails.shader" Line="7" Column="21" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

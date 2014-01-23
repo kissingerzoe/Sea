@@ -47,9 +47,9 @@ public class Sail : MonoBehaviour
 			{
 				for(int j=0;j<m_cell_num;++j)
 				{
-					_list.Add(new Vector3(j,i,0));
-					m_vec_list.Add(new Vector3(j,i,0));
-					m_base_vec_list.Add(new Vector3(j,i,0));
+					_list.Add(new Vector3(j*m_sail_unit,i*m_sail_unit,0));
+					m_vec_list.Add(new Vector3(j*m_sail_unit,i*m_sail_unit,0));
+					m_base_vec_list.Add(new Vector3(j*m_sail_unit,i*m_sail_unit,0));
 				}
 			}
 			
@@ -74,7 +74,7 @@ public class Sail : MonoBehaviour
 			{
 				for(int j=0;j<m_cell_num;++j)
 				{
-					_uv_list.Add(new Vector2(i/(float)m_cell_num,j/(float)m_cell_num));
+					_uv_list.Add(new Vector2(j/(float)m_cell_num,i/(float)m_cell_num));
 				}
 			}		
 		    
@@ -118,7 +118,7 @@ public class Sail : MonoBehaviour
 				float b=m_cell_num*m_shift_offset; 
 				float _y=(_index/m_cell_num)-m_cell_half;
 				float _z=Mathf.Sqrt(1.0f-(_y*_y)/(a*a))*b;;
-				m_vec_list[_index]=m_base_vec_list[_index]+new Vector3(0,_y,_z);
+				m_vec_list[_index]=m_base_vec_list[_index]+new Vector3(0,_y*m_sail_unit,_z*m_sail_unit);
 			}
 		}
 		m_mesh.vertices=m_vec_list.ToArray();		
@@ -133,6 +133,8 @@ public class Sail : MonoBehaviour
 	
 	float m_shift_offset=0.7f;  
 	float mc_shift_speed=0.3f;
+	
+	float m_sail_unit=0.1f;
 	
 
 }
