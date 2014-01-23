@@ -9,15 +9,26 @@ public class Sail : MonoBehaviour
 	void Start ()
 	{
 		
-		
+		init();
 
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if(Input.GetKeyDown(KeyCode.T))
+		if(Input.GetKey(KeyCode.UpArrow))
 		{
+			set_offset(m_shift_offset+mc_shift_speed*Time.deltaTime);
+			
+		}
+		if(Input.GetKey(KeyCode.DownArrow))
+		{
+			set_offset(m_shift_offset-mc_shift_speed*Time.deltaTime); 
+		}		
+	}
+	
+	void init()
+	{
 			GameObject _go=new GameObject("Sail");
 			m_mesh=_go.AddComponent<MeshFilter>().mesh;
 			
@@ -37,7 +48,8 @@ public class Sail : MonoBehaviour
 				for(int j=0;j<m_cell_num;++j)
 				{
 					_list.Add(new Vector3(j,i,0));
-					m_vec_list.Add(new Vector3(j,i,0));					
+					m_vec_list.Add(new Vector3(j,i,0));
+					m_base_vec_list.Add(new Vector3(j,i,0));
 				}
 			}
 			
@@ -56,62 +68,71 @@ public class Sail : MonoBehaviour
 					_ii.Add(i*m_cell_num+j+m_cell_num);
 				}
 			}
-			
-			
-			
-			
-
-//			_list.Add(new Vector3(0,0,0));
-//			_list.Add(new Vector3(1,0,0));
-//			_list.Add(new Vector3(0,1,0));
-			m_mesh.vertices=_list.ToArray();
 		
-//			_ii.Add(0);
-//			_ii.Add(1);
-//			_ii.Add(2);
-			m_mesh.SetTriangles(_ii.ToArray(),0);
-			m_mesh.RecalculateNormals();
-			_go.AddComponent<MeshRenderer>();
-			
-			
-			for(int i=m_cell_num;i<m_cell_num*(m_cell_num-1);++i)
-			{
-				m_node_list.Add(i);
-			}
-			
-			
-			UnityEngine.Debug.Log("VeCNum:"+m_vec_list.Count+" NodeNum:"+m_node_list.Count);
-			
-			 
-
-			
-			for(int i=0;i<m_cell_num-2;++i)
+		    List<Vector2> _uv_list=new List<Vector2>();
+			for(int i=0;i<m_cell_num;++i)
 			{
 				for(int j=0;j<m_cell_num;++j)
 				{
-					int _index=m_node_list[i*m_cell_num+j];
-					int a=m_cell_half-j;
-					
-//					float _y=Mathf.Sqrt((1-m_m*a*a)/m_n);
-					
-//					Debug.Log(a+"  "+_y);
-					//m_vec_list[_index]=m_mesh.vertices[_index]+new Vector3(0,0,_y);
+					_uv_list.Add(new Vector2(i/(float)m_cell_num,j/(float)m_cell_num));
 				}
+			}		
+		    
+		
+		
+			m_mesh.vertices=_list.ToArray();
+			m_mesh.SetTriangles(_ii.ToArray(),0);
+			m_mesh.uv=_uv_list.ToArray();
+		
+			m_mesh.RecalculateNormals();
+		
+			MeshRenderer _mr= _go.AddComponent<MeshRenderer>();
+			for(int i=0;i<m_cell_num*m_cell_num;++i)
+			{
+				m_node_list.Add(i);
 			}
-			//m_mesh.vertices=m_vec_list.ToArray();
-			//m_mesh.
-			
-			
-		}
+			_mr.material=mat;
+		
+		    
+			UnityEngine.Debug.Log("VeCNum:"+m_vec_list.Count+" NodeNum:"+m_node_list.Count);		
 	}
+	
+	public void set_offset(float _offset)
+	{
+		m_shift_offset=_offset;
+		if(m_shift_offset>=1.0f)
+		{
+			m_shift_offset=1.0f;
+		}
+		if(m_shift_offset<=0.0f)
+		{
+			m_shift_offset=0.0f;
+		}
+		
+		for(int i=0;i<m_cell_num;++i)
+		{
+			for(int j=0;j<m_cell_num;++j)
+			{
+				int _index=m_node_list[i*m_cell_num+j];
+				float a=m_cell_num/2.0f;
+				float b=m_cell_num*m_shift_offset; 
+				float _y=(_index/m_cell_num)-m_cell_half;
+				float _z=Mathf.Sqrt(1.0f-(_y*_y)/(a*a))*b;;
+				m_vec_list[_index]=m_base_vec_list[_index]+new Vector3(0,_y,_z);
+			}
+		}
+		m_mesh.vertices=m_vec_list.ToArray();		
+	}
+	public Material mat;
 	Mesh m_mesh;
-	int m_cell_num=21;//5;
-	int m_cell_half=10;//1;
+	int m_cell_num=11;//5;
+	int m_cell_half=5;//1;
 	List<int> m_node_list=new List<int>();
 	List<Vector3> m_vec_list=new List<Vector3>();
+	List<Vector3> m_base_vec_list=new List<Vector3>();
 	
-	float m_shift_offset=0.2f;  
+	float m_shift_offset=0.7f;  
+	float mc_shift_speed=0.3f;
 	
-	float m_a=2.0f;
-	float m_b=5.0f;
+
 }

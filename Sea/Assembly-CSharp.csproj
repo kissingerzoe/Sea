@@ -102,6 +102,7 @@
      <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\WaterInclude.cginc" />
      <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-Water4.shader" />
      <None Include="Assets\ShipGameStarterKit\Shaders\MultiplyNoAlpha.shader" />
+     <None Include="Assets\Standard Assets\NormalSail.shader" />
      <None Include="Assets\ShipGameStarterKit\ReadMe (Important!).txt" />
   </ItemGroup>
   <ItemGroup>
