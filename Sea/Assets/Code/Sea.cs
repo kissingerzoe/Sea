@@ -5,11 +5,9 @@ public class Sea
 {
 	public Sea()
 	{
-		
-		foreach(GameObject g in Dummer.get_single().ship_list)
-		{
-			m_ship_list.Add(new Ship(g));
-		}
+		Ship _ship=new Ship(GameObject.Instantiate(Dummer.get_single().ship_pref,Vector3.zero,Quaternion.Euler(0,180,0)) as GameObject,Dummer.get_single().mat);
+		Camera.mainCamera.GetComponent<SCamera>().set_follow_ship(_ship.get_go());
+		m_ship_list.Add(_ship);
 	}
 	public void update()
 	{
@@ -26,6 +24,10 @@ public class Sea
 		{
 			_s.update(m_wind);
 		}
+		if(Input.GetKeyDown(KeyCode.W))
+		{
+			rand_wind();
+		}
 	}
     void rand_wind()
     {
@@ -33,14 +35,18 @@ public class Sea
         m_wind.z = Random.Range(-mc_wind_range, mc_wind_range);
 
         Dummer.get_single().water.renderer.material.SetVector("_WaveSpeed", new Vector4(-m_wind.x * 100, -m_wind.z * 100, -m_wind.x * 50, -m_wind.z * 50));
+//		foreach(Ship _s in m_ship_list)
+//		{
+//			_s.set_wind(m_wind);
+//		}
     }
 	public void on_gui()
 	{
-        if (GUI.Button(new Rect(0, Screen.height - 40, 100, 40), ""))
-        {
-            rand_wind();
-        }
-		GUI.Label(new Rect(0,Screen.height-20,100,20),"Wind:"+(int)(m_wind.x*100)+","+(int)(m_wind.z*100));
+//        if (GUI.Button(new Rect(0, Screen.height - 40, 100, 40), ""))
+//        {
+//            rand_wind();
+//        }
+		GUI.Label(new Rect(0,Screen.height-20,300,20),"Wind:"+(int)(m_wind.x*100)+","+(int)(m_wind.z*100)+" Screen:"+Screen.width.ToString()+"Height:"+Screen.height.ToString());
 	}
 	List<Ship> m_ship_list=new List<Ship>();
 	Vector3 m_wind=Vector3.zero;

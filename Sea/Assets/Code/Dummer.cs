@@ -40,6 +40,7 @@ public class Dummer : MonoBehaviour {
 	
 	Sea m_sea=null;
 	
-	public GameObject[] ship_list;
+	public GameObject ship_pref;
+	public Material mat;
     public GameObject water;
 }

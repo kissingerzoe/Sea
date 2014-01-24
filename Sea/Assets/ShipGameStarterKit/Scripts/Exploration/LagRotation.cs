@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [AddComponentMenu("Exploration/Lag Rotation")]
-public class LagRotation : MonoBehaviour
+public class GLagRotation : MonoBehaviour
 {
 	public float speed = 10f;
 	
