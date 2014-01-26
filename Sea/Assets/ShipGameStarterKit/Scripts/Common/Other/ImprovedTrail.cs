@@ -165,8 +165,8 @@ public class ImprovedTrail : MonoBehaviour
 	/// Enable/disable the trail when this script gets the event.
 	/// </summary>
 
-	void OnEnable ()  { if (mChild != null) mChild.active = true; }
-	void OnDisable () { if (mChild != null) mChild.active = false; }
+	void OnEnable ()  { if (mChild != null) mChild.SetActive(true); }
+	void OnDisable () { if (mChild != null) mChild.SetActive(false);}
 
 	/// <summary>
 	/// Release all resources we created.

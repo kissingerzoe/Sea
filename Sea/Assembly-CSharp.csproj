@@ -45,11 +45,22 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Code\Dummer.cs" />
+     <Compile Include="Assets\Code\EditCamerar.cs" />
+     <Compile Include="Assets\Code\Rudder.cs" />
      <Compile Include="Assets\Code\SCamera.cs" />
      <Compile Include="Assets\Code\Sail.cs" />
      <Compile Include="Assets\Code\Sea.cs" />
      <Compile Include="Assets\Code\Ship.cs" />
+     <Compile Include="Assets\Code\ShipData.cs" />
      <Compile Include="Assets\Code\ShipMaker.cs" />
+     <Compile Include="Assets\LitJson\IJsonWrapper.cs" />
+     <Compile Include="Assets\LitJson\JsonData.cs" />
+     <Compile Include="Assets\LitJson\JsonException.cs" />
+     <Compile Include="Assets\LitJson\JsonMapper.cs" />
+     <Compile Include="Assets\LitJson\JsonReader.cs" />
+     <Compile Include="Assets\LitJson\JsonWriter.cs" />
+     <Compile Include="Assets\LitJson\Lexer.cs" />
+     <Compile Include="Assets\LitJson\ParserToken.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipItems.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\EquipRandomItem.cs" />
      <Compile Include="Assets\NGUI\Examples\Scripts\InventorySystem\Game\UICursor.cs" />

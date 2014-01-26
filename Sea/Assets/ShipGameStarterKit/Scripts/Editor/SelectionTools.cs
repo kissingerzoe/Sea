@@ -10,8 +10,8 @@ public class SelectionTools
 		if (HasValidTransform())
 		{
 			GameObject[] gos = Selection.gameObjects;
-			bool val = !Selection.activeGameObject.active;
-			foreach (GameObject go in gos) go.SetActiveRecursively(val);
+			bool val = !Selection.activeGameObject.activeSelf;
+			foreach (GameObject go in gos) go.SetActive(val);
 		}
 	}
 
@@ -115,7 +115,7 @@ public class SelectionTools
 		if (Selection.activeTransform != null)
 		{
 			// Check if the selected object is a prefab instance and display a warning
-			PrefabType type = EditorUtility.GetPrefabType( Selection.activeGameObject );
+			PrefabType type = PrefabUtility.GetPrefabType( Selection.activeGameObject );
 
 			if (type == PrefabType.PrefabInstance)
 			{

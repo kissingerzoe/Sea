@@ -27,8 +27,12 @@ public class ShipMaker : MonoBehaviour {
 		if(Input.GetKey(KeyCode.RightArrow))
 		{
 			m_wind+=new Vector3(Time.deltaTime*m_speed,0,0);
+		}
+		if(Input.GetKeyDown(KeyCode.U))
+		{
+			m_ship.serialize();
 		}		
-		m_ship.update(m_wind);
+		m_ship.update(m_wind,false);
 	}
 	void OnGUI()
 	{

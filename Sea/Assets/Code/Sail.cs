@@ -126,6 +126,23 @@ public class Sail
 	{
 		return m_go;
 	}
+	
+	public SailData get_sail_data()
+	{
+		SailData _sd=new SailData();
+		_sd.m_cell_num=m_cell_num;
+		_sd.m_cell_half=m_cell_half;
+		_sd.m_node_list=new List<int>(m_node_list);
+		foreach(Vector3 _v in m_base_vec_list)
+		{
+			_sd.m_vec_xlist.Add(_v.x);
+			_sd.m_vec_ylist.Add(_v.y);
+			_sd.m_vec_zlist.Add(_v.z);
+		}
+		_sd.m_sail_unit_x=m_sail_unit.x;
+		_sd.m_sail_unit_y=m_sail_unit.y;
+		return _sd;
+	}
 	//Material m_mat;
 	GameObject m_go;
 	Mesh m_mesh;

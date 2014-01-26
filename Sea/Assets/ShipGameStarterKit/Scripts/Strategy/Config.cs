@@ -43,7 +43,7 @@ public class Config : MonoBehaviour
 		if (playerShip != null && Input.GetKeyDown(KeyCode.F5))
 		{
 			GameCamera.DetachFromParent(playerShip.transform);
-			playerShip.SetActiveRecursively(!playerShip.active);
+			playerShip.SetActive(!playerShip.activeSelf);
 		}
 	}
 
@@ -131,13 +131,13 @@ public class Config : MonoBehaviour
 
 			if (GUI.Button(new Rect(100f, rect.height - 80f, 200f, 30f), "Try Strategy Mode", skin.button))
 			{
-				playerShip.SetActiveRecursively(false);
+				playerShip.SetActive(false);
 				showWelcome = false;
 			}
 
 			if (GUI.Button(new Rect(100f, rect.height - 40f, 200f, 30f), "Try Exploration Mode", skin.button))
 			{
-				playerShip.SetActiveRecursively(true);
+				playerShip.SetActive(true);
 				showWelcome = false;
 			}
 		}

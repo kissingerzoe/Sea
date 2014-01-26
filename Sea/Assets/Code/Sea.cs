@@ -7,6 +7,7 @@ public class Sea
 	{
 		Ship _ship=new Ship(GameObject.Instantiate(Dummer.get_single().ship_pref,Vector3.zero,Quaternion.Euler(0,180,0)) as GameObject,Dummer.get_single().mat);
 		Camera.mainCamera.GetComponent<SCamera>().set_follow_ship(_ship.get_go());
+		Dummer.get_single().rudder.ship=_ship.get_go();
 		m_ship_list.Add(_ship);
 	}
 	public void update()
@@ -22,12 +23,14 @@ public class Sea
 		}
 		foreach(Ship _s in m_ship_list)
 		{
-			_s.update(m_wind);
+			_s.update(m_wind,true);
 		}
 		if(Input.GetKeyDown(KeyCode.W))
 		{
 			rand_wind();
 		}
+		
+
 	}
     void rand_wind()
     {
@@ -50,7 +53,7 @@ public class Sea
 	}
 	List<Ship> m_ship_list=new List<Ship>();
 	Vector3 m_wind=Vector3.zero;
-	const float mc_wind_range=1.0f;
+	const float mc_wind_range=10.0f;
 	float m_wind_rand_tick=5.0f;
 	const float mc_wind_rand_max_time=20.0f;
 	const float mc_wind_rand_min_time=5.0f;

@@ -43,4 +43,6 @@ public class Dummer : MonoBehaviour {
 	public GameObject ship_pref;
 	public Material mat;
     public GameObject water;
+	
+	public Rudder rudder;
 }
