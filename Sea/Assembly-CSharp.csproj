@@ -46,13 +46,25 @@
   <ItemGroup>
      <Compile Include="Assets\Code\Dummer.cs" />
      <Compile Include="Assets\Code\EditCamerar.cs" />
+     <Compile Include="Assets\Code\Framework\SSysDef.cs" />
+     <Compile Include="Assets\Code\Framework\SSysMgr.cs" />
+     <Compile Include="Assets\Code\Framework\SSysterm.cs" />
+     <Compile Include="Assets\Code\Framework\SUIPanel.cs" />
+     <Compile Include="Assets\Code\Framework\Systerms\Maker\ShipMaker.cs" />
+     <Compile Include="Assets\Code\Framework\Systerms\Maker\SsMaker.cs" />
+     <Compile Include="Assets\Code\Framework\Systerms\Maker\SuMakerPanel.cs" />
+     <Compile Include="Assets\Code\Framework\Systerms\Root\RootMgr.cs" />
+     <Compile Include="Assets\Code\Framework\Systerms\Root\RootShipMo.cs" />
+     <Compile Include="Assets\Code\Framework\Systerms\Root\SsRoot.cs" />
+     <Compile Include="Assets\Code\Framework\Systerms\Root\SuRootPanel.cs" />
+     <Compile Include="Assets\Code\Framework\Systerms\SsSea.cs" />
      <Compile Include="Assets\Code\Rudder.cs" />
      <Compile Include="Assets\Code\SCamera.cs" />
      <Compile Include="Assets\Code\Sail.cs" />
      <Compile Include="Assets\Code\Sea.cs" />
+     <Compile Include="Assets\Code\SeaCore.cs" />
      <Compile Include="Assets\Code\Ship.cs" />
      <Compile Include="Assets\Code\ShipData.cs" />
-     <Compile Include="Assets\Code\ShipMaker.cs" />
      <Compile Include="Assets\LitJson\IJsonWrapper.cs" />
      <Compile Include="Assets\LitJson\JsonData.cs" />
      <Compile Include="Assets\LitJson\JsonException.cs" />

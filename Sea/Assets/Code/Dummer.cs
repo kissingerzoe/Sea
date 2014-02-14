@@ -31,7 +31,10 @@ public class Dummer : MonoBehaviour {
 	void Update ()
 	{
 		m_sea.update();
-	
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			Application.LoadLevel("Root");
+		}
 	}
 	void OnGUI()
 	{

@@ -1,21 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Code/Ship.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Code/Framework/Systerms/Maker/SsMaker.cs">
     <Files>
-      <File FileName="Assets/Code/Rudder.cs" Line="28" Column="65" />
-      <File FileName="Assets/ShipGameStarterKit/Scripts/Common/Other/ImprovedTrail.cs" Line="1" Column="1" />
-      <File FileName="Assets/ShipGameStarterKit/Scripts/Strategy/Config.cs" Line="1" Column="1" />
-      <File FileName="Assets/Code/Sea.cs" Line="1" Column="1" />
-      <File FileName="Assets/Code/Ship.cs" Line="23" Column="3" />
-      <File FileName="Assets/Code/Sail.cs" Line="1" Column="1" />
-      <File FileName="Assets/Code/ShipMaker.cs" Line="1" Column="1" />
-      <File FileName="Assets/Code/EditCamerar.cs" Line="16" Column="15" />
-      <File FileName="Assets/LitJson/JsonMapper.cs" Line="786" Column="1" />
-      <File FileName="Assets/ShipGameStarterKit/Scripts/Editor/SelectionTools.cs" Line="1" Column="1" />
-      <File FileName="Assets/Code/ShipData.cs" Line="20" Column="29" />
-      <File FileName="Assets/LitJson/JsonWriter.cs" Line="345" Column="21" />
-      <File FileName="Assets/NGUI/Scripts/Interaction/UIButtonColor.cs" Line="1" Column="1" />
-      <File FileName="../../nba_cn/Assets/Scripts/MatchCore/Tool/AvatarMaker/EditAvatar.cs" Line="331" Column="1" />
+      <File FileName="Assets/Code/Dummer.cs" Line="20" Column="2" />
+      <File FileName="Assets/Code/SeaCore.cs" Line="30" Column="20" />
+      <File FileName="Assets/Code/Framework/Systerms/Root/SuRootPanel.cs" Line="1" Column="1" />
+      <File FileName="Assets/Code/Framework/Systerms/Root/SsRoot.cs" Line="9" Column="3" />
+      <File FileName="Assets/Code/Framework/Systerms/Root/RootMgr.cs" Line="18" Column="57" />
+      <File FileName="Assets/Code/Framework/Systerms/SsSea.cs" Line="6" Column="3" />
+      <File FileName="Assets/Code/Framework/Systerms/Maker/SsMaker.cs" Line="8" Column="15" />
+      <File FileName="Assets/Code/Framework/Systerms/Maker/SuMakerPanel.cs" Line="7" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

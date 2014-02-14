@@ -17,8 +17,13 @@ public class SailData
 
 public class ShipData
 {
-	public string name="Black";
+	public string name="BlackPeal";
 	public List<SailData> m_sail_list=new List<SailData>();
+}
+
+public class ShipDataColl
+{
+	public List<ShipData> m_ship_list=new List<ShipData>();
 }
 
 
