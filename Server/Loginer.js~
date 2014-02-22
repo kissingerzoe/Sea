@@ -1,0 +1,20 @@
+//Loginer
+var http=require('http');
+var req_dic=new Array();
+req_dic['/login']=function()
+{
+    console.log('want login?');
+}
+http.createServer(function(req,res)		  
+{
+    if(req_dic[req.url])
+    {
+       req_dic[req.url]();
+       res.writeHead(200,{'Content-Type':'text/text'});
+
+    }else
+    {
+	res.writeHead(202,{'Content-Type':'text/text'});
+    }
+    res.end('');
+}).listen(3000);
