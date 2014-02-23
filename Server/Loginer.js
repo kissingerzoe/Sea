@@ -1,10 +1,29 @@
 //Loginer
 var http=require('http');
+//var mongodb=require('mongodb');
 var req_dic=new Array();
 req_dic['/login']=function()
 {
     // console.log('want login?');
 }
+var MongoClient = require('mongodb').MongoClient;
+
+// Connect to the db
+MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+	if(!err) {
+	    console.log("We are connected");
+	    db.collection('test', function(err, collection) {});
+
+	    db.collection('test', {w:1}, function(err, collection) {});
+
+	    db.createCollection('test', function(err, collection) {});
+
+	    db.createCollection('test', {w:1}, function(err, collection) {});
+	}
+    })
+
+
+
 http.createServer(function(req,res)		  
 {
     console.log(req.url);
