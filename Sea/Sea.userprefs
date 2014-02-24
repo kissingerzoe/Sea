@@ -1,10 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Code/Net/NetMsg.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Code/Framework/Systerms/Root/SsRoot.cs">
     <Files>
-      <File FileName="Assets/Code/Net/NetMsg.cs" Line="33" Column="30" />
-      <File FileName="../../Downloads/nba_cn 2/Assets/Scripts/Network/NetworkData.cs" Line="1" Column="1" />
-      <File FileName="../../Downloads/nba_cn/Assets/Scripts/Network/NetworkMsgRoutine.cs" Line="101" Column="4" />
+      <File FileName="Assets/Code/Neter.cs" Line="7" Column="17" />
+      <File FileName="Assets/Code/Net/NetMsgBase.cs" Line="3" Column="18" />
+      <File FileName="Assets/Code/Net/NetMsg.cs" Line="45" Column="9" />
+      <File FileName="Assets/Code/Framework/Systerms/Root/SsRoot.cs" Line="25" Column="17" />
+      <File FileName="Assets/Code/Framework/Systerms/Root/SuRootPanel.cs" Line="22" Column="21" />
+      <File FileName="Assets/Code/SeaCore.cs" Line="21" Column="29" />
+      <File FileName="Assets/Code/Framework/SSysterm.cs" Line="4" Column="23" />
+      <File FileName="Assets/Code/Framework/Systerms/Root/RootMgr.cs" Line="25" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

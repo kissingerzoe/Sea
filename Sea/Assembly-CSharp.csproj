@@ -59,6 +59,7 @@
      <Compile Include="Assets\Code\Framework\Systerms\Root\SuRootPanel.cs" />
      <Compile Include="Assets\Code\Framework\Systerms\SsSea.cs" />
      <Compile Include="Assets\Code\Net\NetMsg.cs" />
+     <Compile Include="Assets\Code\Net\NetMsgBase.cs" />
      <Compile Include="Assets\Code\Neter.cs" />
      <Compile Include="Assets\Code\Rudder.cs" />
      <Compile Include="Assets\Code\SCamera.cs" />
