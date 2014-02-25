@@ -5,6 +5,7 @@ using NbaLitJson;
 public enum NetMsgType
 {
 	LOGIN,
+        ENTER_SERVER,
 }
 public delegate void NetMsgDel(object _obj);
 public class NetMsg
@@ -80,7 +81,7 @@ public class NetMsgMgr
 		default:
 			return null;
 		case NetMsgType.LOGIN:
-			return  (object)(NbaLitJson.JsonMapper.ToObject<NetMsgBase>(_msg));
+			return  (object)(NbaLitJson.JsonMapper.ToObject<NmLoginResult>(_msg));
 		}
 	}
 	const int mc_max_work_num=3;

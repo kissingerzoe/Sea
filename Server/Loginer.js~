@@ -15,6 +15,7 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 				user_dic=docs;
 			    });
 			http.createServer(function(req,res){
+				res.writeHead(200,{'Content-Type':'text/plain'});
 				console.log(req.url);
 				if(req_dic[req.url]){
 				    var body_info='';
@@ -24,8 +25,10 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 					    req_dic[req.url](arg_parse(body_info),res);
 					});
 				}else{
-				    res.writeHead(202,{'Content-Type':'text/plain'});
-				    res.end();
+				    var _result=new Object();
+				    _result.code=0;
+				    _result.msg="LoginFail";
+				    res.end(JSON.stringify(_result));
 				}
 			    }).listen(3000);
 			console.log('Login is run at 3000');		    			
@@ -34,7 +37,7 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 	}
     })
     function arg_parse(_arg){
-    console.log(_arg);
+    //    console.log(_arg);
     var _o=new Object();
     var _args = _arg.split('&');
     for(var i=0;i<_args.length;++i){
@@ -47,20 +50,15 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 req_dic['/login']=function(arg,res){
     if(user_dic[0]){
 	if((user_dic[0])&&(user_dic[0].name==arg.user)&&(user_dic[0].password==arg.pass)){
-	    res.writeHead(200,{'Content-Type':'text/plain'});
 	    var _result=new Object();
+	    _result.code=1;
 	    _result.msg="LoginSuc";
-	    res.end(JSON.stringify(_result));       
-	}
-	else{
-	    res.writeHead(202,{'Content-Type':'text/plain'});
-	    var _result=new Object();
-	    _result.msg="LoginFail";
 	    res.end(JSON.stringify(_result));
+	    return;
 	}
     }
-    else{
-	    res.writeHead(202,{'Content-Type':'text/plain'});
-	    res.end('url error');	
-    }
+    var _result=new Object();
+    _result.code=0;
+    _result.msg="LoginFail";
+    res.end(JSON.stringify(_result));
 }

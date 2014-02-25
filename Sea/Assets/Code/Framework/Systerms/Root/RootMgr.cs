@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-
 public class RootMgr : MonoBehaviour {
 
 	// Use this for initialization
@@ -25,9 +24,11 @@ public class RootMgr : MonoBehaviour {
 		m_ss_root.login(name_label.text,pass_label.text);
 		//SeaCore.get_single().get_net_mgr().send_msg(NetMsgType.LOGIN,
 	}
-	public void bound_systerm(SsRoot _sr)
-	{
-		m_ss_root=_sr;
+        void server_b(int _index){
+	  m_ss_root.enter_server(_index);
+        }
+	public void bound_systerm(SsRoot _sr){
+	  m_ss_root=_sr;
 	}
 	SsRoot m_ss_root;
 	public UILabel name_label;

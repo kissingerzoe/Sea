@@ -1,8 +1,17 @@
 //Loginer
 var http=require('http');
 var req_dic=new Array();
+var game_server_list=new Array();
 var user_dic;
 var MongoClient = require('mongodb').MongoClient;
+function GameServer(name,url){
+    this.name=name;
+    this.url=url;
+}
+function init(){
+    game_server_list.push(new GameServer('游戏服务器1','127.0.0.1:3001'));
+    game_server_list.push(new GameServer('游戏服务器2','127.0.0.1:3002'));
+}
 MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 	if(err){
 	}
@@ -15,6 +24,7 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 				user_dic=docs;
 			    });
 			http.createServer(function(req,res){
+				res.writeHead(200,{'Content-Type':'text/plain'});
 				console.log(req.url);
 				if(req_dic[req.url]){
 				    var body_info='';
@@ -24,17 +34,20 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 					    req_dic[req.url](arg_parse(body_info),res);
 					});
 				}else{
-				    res.writeHead(202,{'Content-Type':'text/plain'});
-				    res.end();
+				    var _result=new Object();
+				    _result.code=-1;
+				    _result.msg="UrlError";
+				    res.end(JSON.stringify(_result));
 				}
 			    }).listen(3000);
-			console.log('Login is run at 3000');		    			
+			console.log('Login is run at 3000');
+			init();
 		    }
 		});
 	}
     })
     function arg_parse(_arg){
-    console.log(_arg);
+    //    console.log(_arg);
     var _o=new Object();
     var _args = _arg.split('&');
     for(var i=0;i<_args.length;++i){
@@ -46,21 +59,17 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 //login
 req_dic['/login']=function(arg,res){
     if(user_dic[0]){
-	res.writeHead(200,{'Content-Type':'text/plain'});
 	if((user_dic[0])&&(user_dic[0].name==arg.user)&&(user_dic[0].password==arg.pass)){
 	    var _result=new Object();
 	    _result.code=1;
-	    _result.msg="LoginSuc";
-	    res.end(JSON.stringify(_result));       
-	}
-	else{
-	    var _result=new Object();
-	    _result.code=0;
-	    _result.msg="LoginFail";
+	    _result.msg="login ok";
+	    _result.game_server_list=game_server_list;
 	    res.end(JSON.stringify(_result));
+	    return;
 	}
     }
-    else{
-	res.end('url error');	
-    }
+    var _result=new Object();
+    _result.code=0;
+    _result.msg="user or pass error";
+    res.end(JSON.stringify(_result));
 }

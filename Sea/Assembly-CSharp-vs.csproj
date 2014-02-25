@@ -57,9 +57,11 @@
      <Compile Include="Assets\Code\Framework\Systerms\Root\RootShipMo.cs" />
      <Compile Include="Assets\Code\Framework\Systerms\Root\SsRoot.cs" />
      <Compile Include="Assets\Code\Framework\Systerms\Root\SuRootPanel.cs" />
+     <Compile Include="Assets\Code\Framework\Systerms\Root\SuServerPanel.cs" />
      <Compile Include="Assets\Code\Framework\Systerms\SsSea.cs" />
      <Compile Include="Assets\Code\Net\NetMsg.cs" />
      <Compile Include="Assets\Code\Net\NetMsgBase.cs" />
+     <Compile Include="Assets\Code\Net\NmLoginResult.cs" />
      <Compile Include="Assets\Code\Neter.cs" />
      <Compile Include="Assets\Code\Rudder.cs" />
      <Compile Include="Assets\Code\SCamera.cs" />
@@ -193,6 +195,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
+     <Compile Include="Assets\NGUI\Scripts\UIButtonKeyMessage.cs" />
      <Compile Include="Assets\ShipGameStarterKit\Scripts\Common\Internal\GUpdateManager.cs" />
      <Compile Include="Assets\ShipGameStarterKit\Scripts\Common\Internal\Interpolation.cs" />
      <Compile Include="Assets\ShipGameStarterKit\Scripts\Common\Internal\Tools.cs" />

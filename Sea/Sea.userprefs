@@ -5,7 +5,7 @@
       <File FileName="Assets/Code/Neter.cs" Line="7" Column="17" />
       <File FileName="Assets/Code/Net/NetMsgBase.cs" Line="3" Column="18" />
       <File FileName="Assets/Code/Net/NetMsg.cs" Line="45" Column="9" />
-      <File FileName="Assets/Code/Framework/Systerms/Root/SsRoot.cs" Line="25" Column="17" />
+      <File FileName="Assets/Code/Framework/Systerms/Root/SsRoot.cs" Line="32" Column="1" />
       <File FileName="Assets/Code/Framework/Systerms/Root/SuRootPanel.cs" Line="22" Column="21" />
       <File FileName="Assets/Code/SeaCore.cs" Line="21" Column="29" />
       <File FileName="Assets/Code/Framework/SSysterm.cs" Line="4" Column="23" />

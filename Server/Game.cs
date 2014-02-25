@@ -1,4 +1,4 @@
-//Loginer
+//Game
 var http=require('http');
 var req_dic=new Array();
 var user_dic;
@@ -7,7 +7,7 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 	if(err){
 	}
 	else{
-	    console.log("DB connected..");
+	    console.log("Game DB connected..");
 	    db.collection('user', function(err, collection){
 		    if(!err){
 			var myCursor=collection.find();
@@ -15,9 +15,9 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 				user_dic=docs;
 			    });
 			http.createServer(function(req,res){
+				res.writeHead(200,{'Content-Type':'text/plain'});
 				console.log(req.url);
 				if(req_dic[req.url]){
-				    res.writeHead(200,{'Content-Type':'text/plain'});
 				    var body_info='';
 				    req.on('data',function(chunk){
 					    body_info+=chunk});
@@ -25,17 +25,19 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 					    req_dic[req.url](arg_parse(body_info),res);
 					});
 				}else{
-				    res.writeHead(202,{'Content-Type':'text/plain'});
-				    res.end();
+				    var _result=new Object();
+				    _result.code=-1;
+				    _result.msg="UrlError";
+				    res.end(JSON.stringify(_result));
 				}
-			    }).listen(3000);
-			console.log('Login is run at 3000');		    			
+			    }).listen(3001);
+			console.log('Game is run at 3001');		    			
 		    }
 		});
 	}
     })
     function arg_parse(_arg){
-    console.log(_arg);
+    //    console.log(_arg);
     var _o=new Object();
     var _args = _arg.split('&');
     for(var i=0;i<_args.length;++i){
@@ -45,36 +47,18 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
     return _o;
 }
 //login
-req_dic['/login']=function(arg,res){
+req_dic['/enter']=function(arg,res){
     if(user_dic[0]){
 	if((user_dic[0])&&(user_dic[0].name==arg.user)&&(user_dic[0].password==arg.pass)){
 	    var _result=new Object();
 	    _result.code=1;
-	    _result.msg="LoginSuc";
+	    _result.msg="login ok";
 	    res.end(JSON.stringify(_result));
 	    return;
 	}
     }
     var _result=new Object();
     _result.code=0;
-    _result.msg="LoginFail";
+    _result.msg="user or pass error";
     res.end(JSON.stringify(_result));
 }
-//create
-req_dic['/create']=function(arg,res){
-    if(user_dic[0]){
-	if((user_dic[0])&&(user_dic[0].name==arg.user)&&(user_dic[0].password==arg.pass)){
-	    var _result=new Object();
-	    _result.code=1;
-	    _result.msg="createSuc";
-	    res.end(JSON.stringify(_result));
-	    return;
-	}
-    }
-    var _result=new Object();
-    _result.code=0;
-    _result.msg="CreateFail";
-    res.end(JSON.stringify(_result));
-}
-
-
