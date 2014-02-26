@@ -31,7 +31,7 @@ public class NetMsgMgr
 				}
 				_form.headers["Authorize"] = "authorize";
 				_msg.www=new WWW(m_url_head+_msg.sub_url,_form);
-				Debug.Log(_msg.www.url); 
+				Debug.Log("POST "+_msg.www.url); 
 				m_change_list.Add(_msg);				
 			}
 			foreach(NetMsg _nm in m_change_list){

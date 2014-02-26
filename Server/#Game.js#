@@ -1,28 +1,23 @@
-//Loginer
+//Game
 var http=require('http');
 var req_dic=new Array();
-var game_server_list=new Array();
 var user_dic;
 var MongoClient = require('mongodb').MongoClient;
-function GameServer(name,url){
-    this.name=name;
-    this.url=url;
-}
-function init(){
-    game_server_list.push(new GameServer('游戏服务器1','127.0.0.1:3001/'));
-    game_server_list.push(new GameServer('游戏服务器2','127.0.0.1:3002/'));
-}
 MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 	if(err){
 	}
 	else{
-	    console.log("DB connected..");
+	    console.log("Game DB connected..");
 	    db.collection('user', function(err, collection){
 		    if(!err){
 			var myCursor=collection.find();
 			myCursor.toArray(function(err,docs){
 				user_dic=docs;
 			    });
+			var port=3001;
+			if(process.argv.length>2){
+			    port=process.argv[2];
+			}
 			http.createServer(function(req,res){
 				res.writeHead(200,{'Content-Type':'text/plain'});
 				console.log(req.url);
@@ -39,9 +34,8 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 				    _result.msg="UrlError";
 				    res.end(JSON.stringify(_result));
 				}
-			    }).listen(3000);
-			console.log('Login is run at 3000');
-			init();
+			    }).listen(port);
+			console.log('Game is run at port:'+port);		    			
 		    }
 		});
 	}
@@ -56,15 +50,16 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
     }
     return _o;
 }
-//login
-req_dic['/login']=function(arg,res){
+//enter_game
+req_dic['/enter']=function(arg,res){
     if(user_dic[0]){
 	if((user_dic[0])&&(user_dic[0].name==arg.user)&&(user_dic[0].password==arg.pass)){
 	    var _result=new Object();
 	    _result.code=1;
-	    _result.msg="login ok";
-	    _result.game_server_list=game_server_list;
+	    _result.msg="enter ok";
+	    _result.wuid=user_dic[0]._id;
 	    res.end(JSON.stringify(_result));
+	    console.log("welecome "+arg.user);
 	    return;
 	}
     }

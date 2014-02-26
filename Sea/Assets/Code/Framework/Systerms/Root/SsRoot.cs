@@ -20,20 +20,22 @@ public class SsRoot:SSysterm
 	
     }
     public void login(string _name,string _pass){
+      GlobalInfoer.user_id=_name;
+      GlobalInfoer.user_password=_pass;
       NetMsg _nm= SeaCore.get_single().get_net_mgr().send_msg(NetMsgType.LOGIN,login_del);
       _nm.args.Add("user",_name);
       _nm.args.Add("pass",_pass);
     }
 
     void login_del(object _obj){
-    NmLoginResult  _mb=_obj as NmLoginResult;
-    UnityEngine.Debug.Log(_mb.code+" "+_mb.msg);
-    if(_mb.code>0){
+    m_login_result=_obj as NmLoginResult;
+    UnityEngine.Debug.Log(m_login_result.code+" "+m_login_result.msg);
+    if(m_login_result.code>0){
       m_current_stage=SsRootStage.SERVER;
       refresh_stage();
-      m_root_panel.set_server_info(_mb.game_server_list);
+      m_root_panel.set_server_info(m_login_result.game_server_list);
     }else{
-      UnityEngine.Debug.LogWarning(_mb.msg);
+      UnityEngine.Debug.LogWarning(m_login_result.msg);
     }
   }
   void refresh_stage(){
@@ -53,19 +55,25 @@ public class SsRoot:SSysterm
     }
   }
   public void enter_server(int _index){
+      UnityEngine.Debug.Log(m_login_result==null);
       if(m_login_result!=null){
+	if(_index<m_login_result.game_server_list.Count){
+	  NmLoginResultData _data=m_login_result.game_server_list[_index];
+	  SeaCore.get_single().get_net_mgr().set_server_ip(_data.url);
 	  NetMsg _nm= SeaCore.get_single().get_net_mgr().send_msg(NetMsgType.ENTER_SERVER,enter_server_del);
-	  //	  _nm.args.Add("user",_name);
-	  //	  _nm.args.Add("pass",_pass);
+	  _nm.args.Add("user",GlobalInfoer.user_id);
+	  _nm.args.Add("pass",GlobalInfoer.user_password);
+	  // Debug.Log(_nm.url);
+	}
       }
   }
   void enter_server_del(object _obj){
-    NmLoginResult  _mb=_obj as NmLoginResult;
+    NmEnterServerResult  _mb=_obj as NmEnterServerResult;
     UnityEngine.Debug.Log(_mb.code+" "+_mb.msg);
     if(_mb.code>0){
-      m_current_stage=SsRootStage.SERVER;
+      m_current_stage=SsRootStage.IDLE;
       refresh_stage();
-      m_root_panel.set_server_info(_mb.game_server_list);
+      GlobalInfoer.user_wuid=_mb.wuid;
     }else{
       UnityEngine.Debug.LogWarning(_mb.msg);
     }

@@ -14,6 +14,10 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 			myCursor.toArray(function(err,docs){
 				user_dic=docs;
 			    });
+			var port=3001;
+			if(process.argv.length>2){
+			    port=process.argv[2];
+			}
 			http.createServer(function(req,res){
 				res.writeHead(200,{'Content-Type':'text/plain'});
 				console.log(req.url);
@@ -30,8 +34,8 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 				    _result.msg="UrlError";
 				    res.end(JSON.stringify(_result));
 				}
-			    }).listen(3001);
-			console.log('Game is run at 3001');		    			
+			    }).listen(port);
+			console.log('Game is run at port:'+port);		    			
 		    }
 		});
 	}
@@ -53,7 +57,9 @@ req_dic['/enter']=function(arg,res){
 	    var _result=new Object();
 	    _result.code=1;
 	    _result.msg="login ok";
+	    _result.wuid=user_dic[0]._id;
 	    res.end(JSON.stringify(_result));
+	    console.log("welecome "+arg.user);
 	    return;
 	}
     }
