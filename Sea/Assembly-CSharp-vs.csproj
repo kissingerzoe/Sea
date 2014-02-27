@@ -62,6 +62,7 @@
      <Compile Include="Assets\Code\GlobalInfoer.cs" />
      <Compile Include="Assets\Code\Net\NetMsg.cs" />
      <Compile Include="Assets\Code\Net\NetMsgBase.cs" />
+     <Compile Include="Assets\Code\Net\NetMsgShipData.cs" />
      <Compile Include="Assets\Code\Net\NmEnterServerResult.cs" />
      <Compile Include="Assets\Code\Net\NmLoginResult.cs" />
      <Compile Include="Assets\Code\Neter.cs" />

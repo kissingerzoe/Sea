@@ -11,7 +11,7 @@ public class SuServerPanel : MonoBehaviour {
 	
     }
     public void init(List<NmLoginResultData> _list){
-	Debug.Log(_list.Count);
+
 	if(_list.Count>0){
 	    m_item_list.Add(m_item);
 	    for(int i=1;i<_list.Count;++i){

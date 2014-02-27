@@ -72,7 +72,7 @@ public class SsRoot:SSysterm
       refresh_stage();
       GlobalInfoer.user_wuid=_mb.wuid;
     }else{
-      UnityEngine.Debug.LogWarning(_mb.msg);
+     UnityEngine.Debug.LogWarning(_mb.msg);
     }
   }
   SsRootStage m_current_stage=SsRootStage.DUMMY;

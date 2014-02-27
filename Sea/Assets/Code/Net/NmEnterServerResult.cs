@@ -1,4 +1,4 @@
 //ybzuo
 public class NmEnterServerResult:NetMsgBase{
-       public long wuid;
+       public string wuid;
 }

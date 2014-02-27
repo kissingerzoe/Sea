@@ -4,14 +4,27 @@ var req_dic=new Array();
 var game_server_list=new Array();
 var user_dic;
 var MongoClient = require('mongodb').MongoClient;
+var is_init=false;
 function GameServer(name,url){
     this.name=name;
     this.url=url;
 }
 function init(){
-    game_server_list.push(new GameServer('游戏服务器1','127.0.0.1:3001/'));
-    game_server_list.push(new GameServer('游戏服务器2','127.0.0.1:3002/'));
+    
+    var fs= require('fs');
+    fs.readFile('./Config/ServerConfig.json',function(err,data){
+	    if(err){
+		Console.log('ServerConfig Load Error');
+	    }else{
+		game_server_list=JSON.parse(data).server_list;
+		is_init=true;
+	    }
+	});
 }
+
+
+
+
 MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 	if(err){
 	}
@@ -26,18 +39,25 @@ MongoClient.connect("mongodb://localhost:27017/SeaDB", function(err, db){
 			http.createServer(function(req,res){
 				res.writeHead(200,{'Content-Type':'text/plain'});
 				console.log(req.url);
-				if(req_dic[req.url]){
+				if(is_init){
+				    if(req_dic[req.url]){
 				    var body_info='';
 				    req.on('data',function(chunk){
 					    body_info+=chunk});
 				    req.on('end',function(){
 					    req_dic[req.url](arg_parse(body_info),res);
 					});
+				    }else{
+					var _result=new Object();
+					_result.code=-1;
+					_result.msg="UrlError";
+					res.end(JSON.stringify(_result));
+				    }
 				}else{
-				    var _result=new Object();
-				    _result.code=-1;
-				    _result.msg="UrlError";
-				    res.end(JSON.stringify(_result));
+					var _result=new Object();
+					_result.code=-2;
+					_result.msg="ServerNotReay";
+					res.end(JSON.stringify(_result));
 				}
 			    }).listen(3000);
 			console.log('Login is run at 3000');
